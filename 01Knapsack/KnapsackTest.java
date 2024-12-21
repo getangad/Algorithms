@@ -11,7 +11,9 @@ public class KnapsackTest {
         int knapsackWeight  = 8;
         int resultUsingRecursion = Knapsack.usingRecursion(weight, profit, knapsackWeight, weight.length - 1);
         int resultUsingDp = Knapsack.usingDynamicProgramming(weight, profit, knapsackWeight);
+        int resultUsingTest = Knapsack.usingDpTest(weight, profit, knapsackWeight);
         Assert.assertEquals(resultUsingDp, resultUsingRecursion);
         Assert.assertEquals(12, resultUsingDp);
+        Assert.assertEquals(12, resultUsingTest);
     }   
 }

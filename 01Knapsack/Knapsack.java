@@ -53,18 +53,37 @@ class Knapsack {
 
         int[][] dp = new int[profit.length + 1][knapsackWeight + 1];
 
-        for (int i = 1; i < dp.length; i++) {
+        for (int elementIndex = 1; elementIndex < dp.length; elementIndex++) {
 
-            for (int j = 1; j < dp[i].length; j++) {
-                if (weight[i - 1] > j) {
-                    dp[i][j] = dp[i - 1][j];
+            for (int requiredWeight = 1; requiredWeight < dp[elementIndex].length; requiredWeight++) {
+                if (weight[elementIndex - 1] > requiredWeight) {
+                    dp[elementIndex][requiredWeight] = dp[elementIndex - 1][requiredWeight];
                 } else {
-                    dp[i][j] = Math.max(profit[i - 1] + dp[i - 1][j - weight[i - 1]], dp[i - 1][j]);
+                    dp[elementIndex][requiredWeight] = Math.max(profit[elementIndex - 1] + dp[elementIndex - 1][requiredWeight - weight[elementIndex - 1]], dp[elementIndex - 1][requiredWeight]);
                 }
             }
         }
 
         return dp[profit.length][knapsackWeight];
+    }
+
+
+    public static int usingDpTest(int weights[], int values[], int knapsackWeight) {
+        int[][] dp = new int[values.length+1][knapsackWeight+1];
+
+        for (int i = 1; i < dp.length; i++) { //iterate over items
+            for (int w = 1; w < dp[i].length; w++) { // iterate over weights
+                if (w < weights[i-1]) {
+                    dp[i][w] = dp[i-1][w];
+                } else {
+                    // check if the item is included
+                    dp[i][w] = Math.max(dp[i-1][w], values[i-1] + dp[i - 1][w - weights[i-1]]);
+                }
+            }
+        }
+        
+
+        return dp[values.length][knapsackWeight];
     }
 
 }
