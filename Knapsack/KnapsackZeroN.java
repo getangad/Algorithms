@@ -29,7 +29,7 @@ class KnapsackZeroN {
             int[] profit,
             int knapsackWeight,
             int itemIndex) {
-                if (knapsackWeight <= 0) {
+                if (knapsackWeight <= 0 || itemIndex < 0) {
                     return 0;
                 }
                 int includeValue = 0;

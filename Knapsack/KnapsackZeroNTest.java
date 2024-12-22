@@ -8,9 +8,9 @@ public class KnapsackZeroNTest {
     public void testKnapsack() {
         int[] weight = new int[] {3,4,47,7};
         int[] profit = new int[] {10,2,3,7};
-        int knapsackWeight  = 81;
+        int knapsackWeight  = 8;
         KnapsackZeroN knapsackZeroN = new KnapsackZeroN();
         int resultUsingRecursion = knapsackZeroN.usingRecursion(weight, profit, knapsackWeight);
-        Assert.assertEquals(12, resultUsingRecursion);
+        Assert.assertEquals(20, resultUsingRecursion);
     }   
 }
