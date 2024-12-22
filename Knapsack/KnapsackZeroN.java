@@ -42,12 +42,34 @@ class KnapsackZeroN {
                 return Math.max(includeValue, excludeValue);
             }
 
+
+    /**
+     * For DP in Knapsack
+     * Use number of items as rows
+     * Use weights as columns
+     * 
+     * 
+     * 
+     * @param weight
+     * @param profit
+     * @param knapsackWeight
+     * @return
+     */
     public static int usingDynamicProgramming(int[] weight,
             int[] profit,
             int knapsackWeight) {
+                int[][] dp = new int[weight.length+1][knapsackWeight+1];
 
-
-                return 0;
+                for (int itemIndex = 1; itemIndex <= weight.length; itemIndex++) {
+                    for (int requiredWeight = 1; requiredWeight<=knapsackWeight; requiredWeight++) {
+                        
+                        if (weight[itemIndex - 1] < requiredWeight) {
+                            dp[itemIndex][requiredWeight] = profit[itemIndex - 1] + dp[itemIndex][requiredWeight - weight[itemIndex - 1]];
+                        }
+                        dp[itemIndex][requiredWeight] = Math.max(dp[itemIndex][requiredWeight], dp[itemIndex - 1][requiredWeight]);
+                    }
+                }
+                return dp[weight.length][knapsackWeight];
     }
 
 

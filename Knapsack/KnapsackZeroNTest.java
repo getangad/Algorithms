@@ -1,3 +1,5 @@
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,6 +13,9 @@ public class KnapsackZeroNTest {
         int knapsackWeight  = 8;
         KnapsackZeroN knapsackZeroN = new KnapsackZeroN();
         int resultUsingRecursion = knapsackZeroN.usingRecursion(weight, profit, knapsackWeight);
+        int resultUsingDp = knapsackZeroN.usingDynamicProgramming(weight, profit, knapsackWeight);
+        
         Assert.assertEquals(20, resultUsingRecursion);
+        Assert.assertEquals(20, resultUsingDp);
     }   
 }
