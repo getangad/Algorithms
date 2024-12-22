@@ -7,7 +7,7 @@ public class LongestIncreasingSubsequenceTest {
     public void testGetLongestIncreasingSubsequenceLength() {
         LongestIncreasingSubsequence lis = new LongestIncreasingSubsequence();
         int result = lis.getLongestIncreasingSubsequenceLength(new int[]{3,1,2,3,4,5,6,7,2,11,14});
-        Assert.assertEquals(7, result);
+        Assert.assertEquals(9, result);
     }
 
     @Test
