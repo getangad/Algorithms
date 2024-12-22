@@ -20,13 +20,13 @@ class Main {
         int[] weight = new int[] { 3, 4, 47, 7 };
         int[] profit = new int[] { 10, 2, 3, 7 };
         int knapsackWeight = 8;
-        System.out.println(Knapsack.usingRecursion(weight, profit, knapsackWeight, weight.length - 1));
+        System.out.println(KnapsackZeroOne.usingRecursion(weight, profit, knapsackWeight, weight.length - 1));
 
-        System.out.println(Knapsack.usingDynamicProgramming(weight, profit, knapsackWeight));
+        System.out.println(KnapsackZeroOne.usingDynamicProgramming(weight, profit, knapsackWeight));
     }
 }
 
-class Knapsack {
+class KnapsackZeroOne {
     public static int usingRecursion(int[] weight,
             int[] profit,
             int knapsackWeight,
