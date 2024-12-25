@@ -50,6 +50,7 @@ public class PaintHouse {
     return Arrays.stream(dp[houseAndColorCost.length - 1]).min().getAsInt();
    }
 
+   //TODO: this thing can be optimized so that only two variables are stored min1 and min2
    private int getMinimumOfHouseExcludingAColorIndex(int[][] dp, int houseIndex, int filteredOutcolorIndex) {
     if (houseIndex < 0) {
         return 0;
