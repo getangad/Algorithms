@@ -13,7 +13,9 @@ public class PlatesTest {
             {80, 50, 10, 50}
         };
         int resultUsingRecursion = plates.getMaximumValueUsingRecursion(platesStack,   5 );
+        int resultUsingDp = plates.getMaximumValueUsingDp(platesStack,   5 );
         Assert.assertEquals(250, resultUsingRecursion);
+        Assert.assertEquals(250, resultUsingDp);
     }
     
 }
